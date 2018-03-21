@@ -135,16 +135,14 @@ def problem4(m):
                                  (i.e., it is prime)
     """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done: 7. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     count = 0
-    for k in range(m + 1):
-        if m % k != 0:
+    for k in range(m):
+        if m % (k + 1) == 0:
             count = count + 1
-        else:
-            return 0
-    return count
+    return count - 2
 
 
 # -----------------------------------------------------------------------------
