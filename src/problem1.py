@@ -196,7 +196,7 @@ def problem1a(a, b, threshold):
               returns 109 + 110 + 111 + 112 + 120 + 121 + 130,  which is 813
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # IMPORTANT NOTE
@@ -208,15 +208,8 @@ def problem1a(a, b, threshold):
     for k in range((b - a) + 1):
         value = product_of_digits(a + k)
         if value < threshold:
-            return value
-        else:
-            return 0
-        total = total + value
+            total = total + (a + k)
     return total
-
-
-
-
 
 
 def run_test_problem1b():
@@ -231,6 +224,41 @@ def run_test_problem1b():
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
 
+    expected = 682
+    actual = problem1b(8)
+    print(' ')
+    print('Test 1 is: problem1b(8)')
+    print('Expected Value =', expected)
+    print('Actual Value =', actual)
+    if actual == expected:
+        print('True')
+
+    expected = 3
+    actual = problem1b(3)
+    print(' ')
+    print('Test 2 is: problem1b(0)')
+    print('Expected Value =', expected)
+    print('Actual Value =', actual)
+    if actual == expected:
+        print('True')
+
+    expected = 64
+    actual = problem1b(4)
+    print(' ')
+    print('Test 3 is: problem1b(4)')
+    print('Expected Value =', expected)
+    print('Actual Value =', actual)
+    if actual == expected:
+        print('True')
+
+    expected = 143
+    actual = problem1b(5)
+    print(' ')
+    print('Test 4 is: problem1b(5)')
+    print('Expected Value =', expected)
+    print('Actual Value =', actual)
+    if actual == expected:
+        print('True')
 
 ###############################################################################
 # IMPORTANT note: in the following problem,
@@ -252,17 +280,10 @@ def problem1b(r):
            and the sum of the above numbers is 682
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #          See the IMPORTANT NOTE just before the DEF above.
     # -------------------------------------------------------------------------
-    total = 0
-    for k in range(((r^2)-r)+1):
-        a = product_of_digits(r + k)
-        if a < r:
-            return a
-        total = total + a
-    return total
-
+    return problem1a(r, r**2, r + 1)
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
