@@ -93,11 +93,21 @@ def problem3(rect, n, window):
       :type window:  rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function, TESTING each step as you go.
+    # Done: 2. Implement and test this function, TESTING each step as you go.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
-    rect = rg.Rectangle()
 
+    rect.attach_to(window)
+    window.render(.1)
+    radius = rect.get_height()/2
+    circle = rg.Circle(rect.get_lower_right_corner(), radius)
+    circle.attach_to(window)
+
+    for k in range(n):
+        center = rg.Point(circle.center.x + (2**(1/2))*radius, circle.center.y + (2**(1/2))*radius)
+        circle = rg.Circle(center, radius)
+        circle.attach_to(window)
+    window.render(.1)
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
